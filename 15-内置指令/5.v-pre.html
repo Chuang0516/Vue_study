@@ -4,24 +4,21 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>3.v-cloak指令</title>
+    <title>5.v_pre</title>
     <script src="../js/vue.js"></script>
-    <style>
-      [v-cloak] {
-        display: none;
-      }
-    </style>
   </head>
   <body>
     <div id="root">
-      <h1 v-cloak>{{name}}</h1>
+      <h2 v-pre>Vue其实很简单</h2>
+      <h2>当前的n值是：{{n}}</h2>
+      <button @click="n++">点我n+1</button>
     </div>
   </body>
   <script>
     new Vue({
       el: '#root',
       data: {
-        name: 'wecreate',
+        n: 1,
       },
     });
   </script>
