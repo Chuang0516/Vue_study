@@ -4,8 +4,83 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>3.组件的嵌套</title>
+    <title>1.基本使用</title>
     <script src="../js/vue.js"></script>
   </head>
-  <body></body>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script>
+    // 创建 student 组件
+    const student = Vue.extend({
+      template: `
+        <div>
+            <h2>学生姓名：{{studentName}}</h2>
+            <h2>学生年龄：{{age}}</h2>
+        </div>
+        `,
+      data() {
+        return {
+          studentName: '小明',
+          age: 18,
+        };
+      },
+    });
+
+    // 创建 school 组件
+    const school = Vue.extend({
+      name: 'wecreate',
+      template: `
+        <div>
+            <h2>学校名称：{{schoolName}}</h2>
+            <h2>学校地址：{{address}}</h2>
+            <student></student>
+        </div>
+        `,
+      data() {
+        return {
+          schoolName: 'wecreate',
+          address: '西安',
+        };
+      },
+      components: {
+        student,
+      },
+    });
+
+    // 定义一个hello组件
+    const hello = Vue.extend({
+      template: `
+        <h1>{{msg}}</h1>
+      `,
+      data() {
+        return {
+          msg: '欢迎来到wecreate学习！',
+        };
+      },
+    });
+
+    // 定义一个 app 组件
+    const app = Vue.extend({
+      template: `
+        <div>
+          <hello></hello>
+          <school><school/>
+        </div>
+      `,
+      components: {
+        school,
+        hello,
+      },
+    });
+
+    new Vue({
+      template: `<app></app>`,
+      el: '#root',
+      // 注册组件
+      components: {
+        app,
+      },
+    });
+  </script>
 </html>

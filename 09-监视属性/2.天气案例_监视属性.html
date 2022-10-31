@@ -30,24 +30,24 @@
             this.isHot = !this.isHot;
           },
         },
-        // watch: {
-        //   isHot: {
-        //     immediate: true, // 初始化时调用
-        //     // handler 被调用：当 isHot 发生改变时
-        //     handler(newValue, oldValue) {
-        //       console.log('被修改了', newValue, oldValue);
-        //     },
-        //   },
-        // },
-      });
-
-      vm.$watch('isHot', {
-        immediate: true, // 初始化时调用
-        // handler 被调用：当 isHot 发生改变时
-        handler(newValue, oldValue) {
-          console.log('被修改了', newValue, oldValue);
+        watch: {
+          isHot: {
+            immediate: true, // 初始化时调用
+            // handler 被调用：当 isHot 发生改变时
+            handler(newValue, oldValue) {
+              console.log('被修改了', newValue, oldValue);
+            },
+          },
         },
       });
+
+      // vm.$watch('isHot', {
+      //   immediate: true, // 初始化时调用
+      //   // handler 被调用：当 isHot 发生改变时
+      //   handler(newValue, oldValue) {
+      //     console.log('被修改了', newValue, oldValue);
+      //   },
+      // });
     </script>
   </body>
 </html>
